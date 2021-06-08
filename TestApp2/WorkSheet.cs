@@ -24,7 +24,7 @@ namespace WorkSheetApp
         private string USER_ID = "1";
         private string TODAY_DATE = "2021-06-05";
 
-        public Form_WorkSheet()
+        public Form_WorkSheet(string userID, string userName, string workDate)
         {
             InitializeComponent();
         }

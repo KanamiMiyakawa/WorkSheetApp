@@ -26,12 +26,12 @@ namespace WorkSheetApp
             //validation
             if (txtBox_Name.Text == "")
             {
-                MessageBox.Show("ユーザー名は必須入力です。", "ユーザー登録エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("ユーザー名は必須入力です。", "ユーザー情報エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             else if (txtBox_Name.Text.Length > 40)
             {
-                MessageBox.Show("ユーザー名の桁数が超過しています。", "ユーザー登録エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("ユーザー名の桁数が超過しています。", "ユーザー情報エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -59,9 +59,49 @@ namespace WorkSheetApp
                     MessageBox.Show(ex.Message, "ユーザー登録エラー");
                 }
             }
+        }
 
+        private void btn_OpenWorkSheet_Click(object sender, EventArgs e)
+        {
+            //validation
+            if (txtBox_Name.Text == "")
+            {
+                MessageBox.Show("ユーザー名は必須入力です。", "ユーザー情報エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            else if (txtBox_Name.Text.Length > 40)
+            {
+                MessageBox.Show("ユーザー名の桁数が超過しています。", "ユーザー情報エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
+            string userID;
+            string userName;
 
+            using (SQLMain dbMain = new SQLMain())
+            {
+                try
+                {
+                    string sql = "SELECT * FROM M_USER WHERE USER_NAME = @USER_NAME";
+                    List<SQLParamIF> bInfo = new List<SQLParamIF>();
+                    bInfo.Add(new SQLParamIF("@USER_NAME", txtBox_Name.Text, ColumnType.Varchar));
+
+                    DataTable dt = dbMain.GetDataTable(sql, bInfo);
+
+                    userID = dt.Rows[0]["USER_ID"].ToString();
+                    userName = dt.Rows[0]["USER_NAME"].ToString();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("ユーザ情報が取得できませんでした", "ユーザ情報取得エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+            }
+
+            string workDate = dPicker_Date.Value.Year.ToString() + "-" + dPicker_Date.Value.Month + "-" + dPicker_Date.Value.Day;
+
+            Form_WorkSheet fm = new(userID, userName, workDate);
+            fm.Show();
         }
     }
 }

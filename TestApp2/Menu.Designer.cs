@@ -68,6 +68,7 @@ namespace WorkSheetApp
             // dPicker_Date
             // 
             this.dPicker_Date.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.dPicker_Date.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dPicker_Date.Location = new System.Drawing.Point(36, 147);
             this.dPicker_Date.Name = "dPicker_Date";
             this.dPicker_Date.Size = new System.Drawing.Size(234, 29);
@@ -97,6 +98,7 @@ namespace WorkSheetApp
             this.btn_OpenWorkSheet.TabIndex = 6;
             this.btn_OpenWorkSheet.Text = "作業予定表を開く";
             this.btn_OpenWorkSheet.UseVisualStyleBackColor = false;
+            this.btn_OpenWorkSheet.Click += new System.EventHandler(this.btn_OpenWorkSheet_Click);
             // 
             // Form_Menu
             // 
