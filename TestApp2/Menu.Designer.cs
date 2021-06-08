@@ -84,6 +84,7 @@ namespace WorkSheetApp
             this.btn_CreateUser.TabIndex = 5;
             this.btn_CreateUser.Text = "ユーザー登録";
             this.btn_CreateUser.UseVisualStyleBackColor = false;
+            this.btn_CreateUser.Click += new System.EventHandler(this.btn_CreateUser_Click);
             // 
             // btn_OpenWorkSheet
             // 
