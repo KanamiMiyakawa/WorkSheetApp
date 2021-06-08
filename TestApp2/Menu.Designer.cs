@@ -109,6 +109,7 @@ namespace WorkSheetApp
             this.Controls.Add(this.lbl_DateTitle);
             this.Controls.Add(this.lbl_NameTitle);
             this.Controls.Add(this.txtBox_Name);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "Form_Menu";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
