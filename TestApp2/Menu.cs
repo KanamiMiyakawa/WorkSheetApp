@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace WorkSheetApp
 {
-    public partial class Menu : Form
+    public partial class Form_Menu : Form
     {
-        public Menu()
+        public Form_Menu()
         {
             InitializeComponent();
         }

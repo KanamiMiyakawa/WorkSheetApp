@@ -17,7 +17,7 @@ namespace WorkSheetApp
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form_WorkSheet());
+            Application.Run(new Form_Menu());
         }
     }
 }

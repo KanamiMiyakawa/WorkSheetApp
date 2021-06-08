@@ -1,7 +1,7 @@
 ﻿
 namespace WorkSheetApp
 {
-    partial class Menu
+    partial class Form_Menu
     {
         /// <summary>
         /// Required designer variable.
@@ -97,7 +97,7 @@ namespace WorkSheetApp
             this.btn_OpenWorkSheet.Text = "作業予定表を開く";
             this.btn_OpenWorkSheet.UseVisualStyleBackColor = false;
             // 
-            // Menu
+            // Form_Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -109,7 +109,7 @@ namespace WorkSheetApp
             this.Controls.Add(this.lbl_NameTitle);
             this.Controls.Add(this.txtBox_Name);
             this.MaximizeBox = false;
-            this.Name = "Menu";
+            this.Name = "Form_Menu";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.Text = "作業予定表メニュー";
             this.ResumeLayout(false);
