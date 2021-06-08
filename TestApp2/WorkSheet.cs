@@ -16,43 +16,17 @@ namespace WorkSheetApp
 {
     public partial class Form_WorkSheet : Form
     {
-        //gitテスト
-        //commitテスト
-        //commitテスト２
-
-        //DBテスト用変数
-        private string USER_ID = "1";
-        private string TODAY_DATE = "2021-06-05";
-
         public Form_WorkSheet(string userID, string userName, string workDate)
         {
             InitializeComponent();
+
+            lbl_USER_ID.Text = userID;
+            lbl_Name.Text = userName;
+            txtBox_Date.Text = workDate;
         }
 
         private void WorkSheet_Load(object sender, EventArgs e)
         {
-            //ユーザ情報取得
-            using (SQLMain dbMain = new SQLMain())
-            {
-                try
-                {
-                    string sql = "SELECT * FROM M_USER WHERE USER_ID = @USER_ID";
-                    List<SQLParamIF> bInfo = new List<SQLParamIF>();
-                    bInfo.Add(new SQLParamIF("@USER_ID", USER_ID, ColumnType.Numeric));
-
-                    DataTable dt = dbMain.GetDataTable(sql, bInfo);
-
-                    lbl_Name.Text = dt.Rows[0]["USER_NAME"].ToString();
-                    lbl_USER_ID.Text = dt.Rows[0]["USER_ID"].ToString();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message, "ユーザ情報取得エラー");
-                }
-            }
-
-            txtBox_Date.Text = TODAY_DATE;
-
             btn_Search_Click(null, null);
         }
         private void btn_Search_Click(object sender, EventArgs e)
@@ -64,7 +38,7 @@ namespace WorkSheetApp
                 {
                     string sql = "SELECT * FROM WORK_PLAN_HED WHERE USER_ID = @USER_ID AND WORK_DATE = @WORK_DATE";
                     List<SQLParamIF> bInfo = new List<SQLParamIF>();
-                    bInfo.Add(new SQLParamIF("@USER_ID", USER_ID, ColumnType.Numeric));
+                    bInfo.Add(new SQLParamIF("@USER_ID", lbl_USER_ID.Text, ColumnType.Numeric));
                     bInfo.Add(new SQLParamIF("@WORK_DATE", txtBox_Date.Text, ColumnType.TimeStamp));
 
                     DataTable dt = dbMain.GetDataTable(sql, bInfo);
@@ -78,6 +52,7 @@ namespace WorkSheetApp
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message, "日次情報取得エラー");
+                    return;
                 }
             }
 
