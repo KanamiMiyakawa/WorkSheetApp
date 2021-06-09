@@ -41,6 +41,10 @@ namespace WorkSheetApp
 
                 dt = SQLUtil.SearchWorkPlanHed(lbl_USER_ID.Text, workDate);
             }
+            else
+            {
+                MessageBox.Show("日次情報を検索しました", "日次情報検索");
+            }
 
             try
             {
