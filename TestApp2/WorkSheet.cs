@@ -32,7 +32,7 @@ namespace WorkSheetApp
         private void btn_Search_Click(object sender, EventArgs e)
         {
             //日次情報を取得、存在しなければ作成
-            DataTable dt = SQLUtil.SearchWorkPlanHed(lbl_USER_ID.Text, txtBox_Date.Text);
+            DataTable　dt = SQLUtil.SearchWorkPlanHed(lbl_USER_ID.Text, txtBox_Date.Text);
 
             if (dt.Rows.Count == 0)
             {
@@ -41,11 +41,19 @@ namespace WorkSheetApp
                 dt = SQLUtil.SearchWorkPlanHed(lbl_USER_ID.Text, txtBox_Date.Text);
             }
 
-            lbl_HED_ID.Text = dt.Rows[0]["HED_ID"].ToString();
-            lbl_SumScheduledTime.Text = "合計予定時間 " + dt.Rows[0]["PLAN_TIME_SUM"].ToString() + "時間";
-            lbl_SumEndedTime.Text = "合計終了時間 " + dt.Rows[0]["RESULT_TIME_SUM"].ToString() + "時間";
-            txtBox_Comment1.Text = dt.Rows[0]["COMMENT1"].ToString();
-            txtBox_Comment2.Text = dt.Rows[0]["COMMENT2"].ToString();
+            try
+            {
+                lbl_HED_ID.Text = dt.Rows[0]["HED_ID"].ToString();
+                lbl_SumScheduledTime.Text = "合計予定時間 " + dt.Rows[0]["PLAN_TIME_SUM"].ToString() + "時間";
+                lbl_SumEndedTime.Text = "合計終了時間 " + dt.Rows[0]["RESULT_TIME_SUM"].ToString() + "時間";
+                txtBox_Comment1.Text = dt.Rows[0]["COMMENT1"].ToString();
+                txtBox_Comment2.Text = dt.Rows[0]["COMMENT2"].ToString();
+            }
+            catch
+            {
+                MessageBox.Show("日次情報が読み取れませんでした", "日次情報エラー");
+                return;
+            }
 
             //作業情報取得
             DataGridUtil.UpdateDataGrid(data_Task, lbl_HED_ID.Text);

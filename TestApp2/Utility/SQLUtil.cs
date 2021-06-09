@@ -18,12 +18,20 @@ namespace Utility
         {
             using (SQLMain dbMain = new SQLMain())
             {
-                string sql = "SELECT * FROM WORK_PLAN_HED WHERE USER_ID = @USER_ID AND WORK_DATE = @WORK_DATE";
-                List<SQLParamIF> bInfo = new List<SQLParamIF>();
-                bInfo.Add(new SQLParamIF("@USER_ID", UserID, ColumnType.Numeric));
-                bInfo.Add(new SQLParamIF("@WORK_DATE", WorkDate, ColumnType.TimeStamp));
+                try
+                {
+                    string sql = "SELECT * FROM WORK_PLAN_HED WHERE USER_ID = @USER_ID AND WORK_DATE = @WORK_DATE";
+                    List<SQLParamIF> bInfo = new List<SQLParamIF>();
+                    bInfo.Add(new SQLParamIF("@USER_ID", UserID, ColumnType.Numeric));
+                    bInfo.Add(new SQLParamIF("@WORK_DATE", WorkDate, ColumnType.TimeStamp));
 
-                return dbMain.GetDataTable(sql, bInfo);
+                    return dbMain.GetDataTable(sql, bInfo);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "日次情報検索エラー");
+                    throw;
+                }
             }
         }
         public static void CreateWorkPlanHed(string UserID, string WorkDate)
@@ -47,9 +55,8 @@ namespace Utility
                 catch (Exception ex)
                 {
                     dbMain.RollBackTran();
-
-                    MessageBox.Show(ex.Message, "日次情報作成エラー");
-                    return;
+                    MessageBox.Show(ex.Message, "日次作成検索エラー");
+                    throw;
                 }
             }
         }
