@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Windows.Forms;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,6 +24,33 @@ namespace Utility
                 bInfo.Add(new SQLParamIF("@WORK_DATE", WorkDate, ColumnType.TimeStamp));
 
                 return dbMain.GetDataTable(sql, bInfo);
+            }
+        }
+        public static void CreateWorkPlanHed(string UserID, string WorkDate)
+        {
+            using (SQLMain dbMain = new SQLMain())
+            {
+                try
+                {
+                    dbMain.BeginTran();
+
+                    string sql = "INSERT INTO WORK_PLAN_HED VALUES(@USER_ID, @WORK_DATE, 0.0, 0.0, '', '')";
+                    List<SQLParamIF> bInfo = new List<SQLParamIF>();
+                    bInfo.Add(new SQLParamIF("@USER_ID", UserID, ColumnType.Numeric));
+                    bInfo.Add(new SQLParamIF("@WORK_DATE", WorkDate, ColumnType.TimeStamp));
+                    dbMain.ExecuteTransaction(sql, bInfo);
+
+                    dbMain.CommitTran();
+
+                    MessageBox.Show("日次情報を作成しました", "日次情報作成");
+                }
+                catch (Exception ex)
+                {
+                    dbMain.RollBackTran();
+
+                    MessageBox.Show(ex.Message, "日次情報作成エラー");
+                    return;
+                }
             }
         }
     }

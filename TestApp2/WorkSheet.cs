@@ -36,32 +36,9 @@ namespace WorkSheetApp
 
             if (dt.Rows.Count == 0)
             {
-                using (SQLMain dbMain = new SQLMain())
-                {
-                    try
-                    {
-                        dbMain.BeginTran();
+                SQLUtil.CreateWorkPlanHed(lbl_USER_ID.Text, txtBox_Date.Text);
 
-                        string sql = "INSERT INTO WORK_PLAN_HED VALUES(@USER_ID, @WORK_DATE, 0.0, 0.0, '', '')";
-                        List<SQLParamIF> bInfo = new List<SQLParamIF>();
-                        bInfo.Add(new SQLParamIF("@USER_ID", lbl_USER_ID.Text, ColumnType.Numeric));
-                        bInfo.Add(new SQLParamIF("@WORK_DATE", txtBox_Date.Text, ColumnType.TimeStamp));
-                        dbMain.ExecuteTransaction(sql, bInfo);
-
-                        dbMain.CommitTran();
-
-                        MessageBox.Show("日次情報を作成しました", "日次情報作成");
-
-                        dt = SQLUtil.SearchWorkPlanHed(lbl_USER_ID.Text, txtBox_Date.Text);
-                    }
-                    catch (Exception ex)
-                    {
-                        dbMain.RollBackTran();
-
-                        MessageBox.Show(ex.Message, "日次情報作成エラー");
-                        return;
-                    }
-                }
+                dt = SQLUtil.SearchWorkPlanHed(lbl_USER_ID.Text, txtBox_Date.Text);
             }
 
             lbl_HED_ID.Text = dt.Rows[0]["HED_ID"].ToString();
