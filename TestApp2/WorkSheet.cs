@@ -16,14 +16,13 @@ namespace WorkSheetApp
 {
     public partial class Form_WorkSheet : Form
     {
-        public Form_WorkSheet(string userID, string userName, string workDate, DateTimePicker dtPickerInput)
+        public Form_WorkSheet(string userID, string userName, DateTimePicker dtPickerInput)
         {
             InitializeComponent();
 
             lbl_USER_ID.Text = userID;
             lbl_Name.Text = userName;
-            txtBox_Date.Text = workDate;
-            dtPicker_Date = dtPickerInput;
+            dtPicker_Date.Value = dtPickerInput.Value;
         }
 
         private void WorkSheet_Load(object sender, EventArgs e)
@@ -33,13 +32,14 @@ namespace WorkSheetApp
         private void btn_Search_Click(object sender, EventArgs e)
         {
             //日次情報を取得、存在しなければ作成
-            DataTable　dt = SQLUtil.SearchWorkPlanHed(lbl_USER_ID.Text, txtBox_Date.Text);
+            string workDate = StringUtil.DateToString(dtPicker_Date);
+            DataTable　dt = SQLUtil.SearchWorkPlanHed(lbl_USER_ID.Text, workDate);
 
             if (dt.Rows.Count == 0)
             {
-                SQLUtil.CreateWorkPlanHed(lbl_USER_ID.Text, txtBox_Date.Text);
+                SQLUtil.CreateWorkPlanHed(lbl_USER_ID.Text, workDate);
 
-                dt = SQLUtil.SearchWorkPlanHed(lbl_USER_ID.Text, txtBox_Date.Text);
+                dt = SQLUtil.SearchWorkPlanHed(lbl_USER_ID.Text, workDate);
             }
 
             try

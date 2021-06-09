@@ -98,9 +98,8 @@ namespace WorkSheetApp
                 }
             }
 
-            string workDate = StringUtil.DateToString(dPicker_Date);
 
-            Form_WorkSheet fm = new(userID, userName, workDate, dPicker_Date);
+            Form_WorkSheet fm = new(userID, userName, dPicker_Date);
             fm.Show();
         }
     }

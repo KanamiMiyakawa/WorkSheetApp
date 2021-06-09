@@ -43,7 +43,6 @@ namespace WorkSheetApp
             this.lbl_NameTitle = new System.Windows.Forms.Label();
             this.lbl_Name = new System.Windows.Forms.Label();
             this.lbl_DateTitle = new System.Windows.Forms.Label();
-            this.txtBox_Date = new System.Windows.Forms.TextBox();
             this.btn_Search = new System.Windows.Forms.Button();
             this.lbl_SumScheduledTime = new System.Windows.Forms.Label();
             this.lbl_SumEndedTime = new System.Windows.Forms.Label();
@@ -197,15 +196,6 @@ namespace WorkSheetApp
             this.lbl_DateTitle.Size = new System.Drawing.Size(72, 28);
             this.lbl_DateTitle.TabIndex = 3;
             this.lbl_DateTitle.Text = "作業日";
-            // 
-            // txtBox_Date
-            // 
-            this.txtBox_Date.Font = new System.Drawing.Font("Yu Gothic UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtBox_Date.Location = new System.Drawing.Point(475, 107);
-            this.txtBox_Date.Name = "txtBox_Date";
-            this.txtBox_Date.Size = new System.Drawing.Size(155, 34);
-            this.txtBox_Date.TabIndex = 4;
-            this.txtBox_Date.Text = "YYYY/MM/DD";
             // 
             // btn_Search
             // 
@@ -375,7 +365,6 @@ namespace WorkSheetApp
             this.Controls.Add(this.lbl_SumScheduledTime);
             this.Controls.Add(this.data_Task);
             this.Controls.Add(this.btn_Search);
-            this.Controls.Add(this.txtBox_Date);
             this.Controls.Add(this.lbl_DateTitle);
             this.Controls.Add(this.lbl_Name);
             this.Controls.Add(this.lbl_NameTitle);
@@ -397,7 +386,6 @@ namespace WorkSheetApp
         private System.Windows.Forms.Label lbl_NameTitle;
         private System.Windows.Forms.Label lbl_Name;
         private System.Windows.Forms.Label lbl_DateTitle;
-        private System.Windows.Forms.TextBox txtBox_Date;
         private System.Windows.Forms.Button btn_Search;
         private System.Windows.Forms.DataGridView data_Task;
         private System.Windows.Forms.Label lbl_SumScheduledTime;
