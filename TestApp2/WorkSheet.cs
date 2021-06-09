@@ -70,6 +70,13 @@ namespace WorkSheetApp
         private void btn_EditTask_Click(object sender, EventArgs e)
         {
             DataGridViewRow dr = DataGridUtil.GetSelectedRow(data_Task);
+
+            if (dr == null)
+            {
+                MessageBox.Show("作業情報を選択してください", "作業情報エラー");
+                return;
+            }
+
             TaskControl fm = new(dr, lbl_HED_ID.Text);
             fm.ShowDialog();
 
@@ -117,13 +124,20 @@ namespace WorkSheetApp
 
         private void btn_DeleteTask_Click(object sender, EventArgs e)
         {
+            DataGridViewRow dr = DataGridUtil.GetSelectedRow(data_Task);
+
+            if(dr == null)
+            {
+                MessageBox.Show("作業情報を選択してください", "作業情報エラー");
+                return;
+            }
+
             if (MessageBox.Show("作業情報を削除してよろしいですか？(はい/いいえ)", "削除", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation)
                 == DialogResult.No)
             {
                 return;
             }
 
-            DataGridViewRow dr = DataGridUtil.GetSelectedRow(data_Task);
             String DTL_ID = dr.Cells[1].Value.ToString();
 
             using (SQLMain dbMain = new SQLMain())
