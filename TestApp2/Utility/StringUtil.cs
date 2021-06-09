@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Text;
+using System.Windows.Forms;
 
 namespace Utility
 {
@@ -92,6 +93,11 @@ namespace Utility
                 throw argEx;
             }
             return ret;
+        }
+
+        public static string DateToString(DateTimePicker dtPicker)
+        {
+            return dtPicker.Value.Year.ToString() + "-" + dtPicker.Value.Month + "-" + dtPicker.Value.Day;
         }
     }
 }

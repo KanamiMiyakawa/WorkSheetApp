@@ -98,7 +98,7 @@ namespace WorkSheetApp
                 }
             }
 
-            string workDate = dPicker_Date.Value.Year.ToString() + "-" + dPicker_Date.Value.Month + "-" + dPicker_Date.Value.Day;
+            string workDate = StringUtil.DateToString(dPicker_Date);
 
             Form_WorkSheet fm = new(userID, userName, workDate);
             fm.Show();
