@@ -27,7 +27,64 @@ namespace WorkSheetApp
 
         private void WorkSheet_Load(object sender, EventArgs e)
         {
-            btn_Search_Click(null, null);
+            DataTable dt;
+
+            //日次情報取得
+            using (SQLMain dbMain = new SQLMain())
+            {
+                string sql = "SELECT * FROM WORK_PLAN_HED WHERE USER_ID = @USER_ID AND WORK_DATE = @WORK_DATE";
+                List<SQLParamIF> bInfo = new List<SQLParamIF>();
+                bInfo.Add(new SQLParamIF("@USER_ID", lbl_USER_ID.Text, ColumnType.Numeric));
+                bInfo.Add(new SQLParamIF("@WORK_DATE", txtBox_Date.Text, ColumnType.TimeStamp));
+
+                dt = dbMain.GetDataTable(sql, bInfo);
+            }
+
+            //なければ作成
+            if (dt.Rows.Count == 0)
+            {
+                using (SQLMain dbMain = new SQLMain())
+                {
+                    try
+                    {
+                        dbMain.BeginTran();
+
+                        string sql = "INSERT INTO WORK_PLAN_HED VALUES(@USER_ID, @WORK_DATE, 0.0, 0.0, '', '')";
+                        List<SQLParamIF> bInfo = new List<SQLParamIF>();
+                        bInfo.Add(new SQLParamIF("@USER_ID", lbl_USER_ID.Text, ColumnType.Numeric));
+                        bInfo.Add(new SQLParamIF("@WORK_DATE", txtBox_Date.Text, ColumnType.TimeStamp));
+                        dbMain.ExecuteTransaction(sql, bInfo);
+
+                        dbMain.CommitTran();
+
+                        MessageBox.Show("日次情報を作成しました", "日次情報作成");
+                    }
+                    catch (Exception ex)
+                    {
+                        dbMain.RollBackTran();
+
+                        MessageBox.Show(ex.Message, "日次情報作成エラー");
+                    }
+                }
+            }
+
+            //日次情報を再度取得
+            using (SQLMain dbMain = new SQLMain())
+            {
+                string sql = "SELECT * FROM WORK_PLAN_HED WHERE USER_ID = @USER_ID AND WORK_DATE = @WORK_DATE";
+                List<SQLParamIF> bInfo = new List<SQLParamIF>();
+                bInfo.Add(new SQLParamIF("@USER_ID", lbl_USER_ID.Text, ColumnType.Numeric));
+                bInfo.Add(new SQLParamIF("@WORK_DATE", txtBox_Date.Text, ColumnType.TimeStamp));
+
+                dt = dbMain.GetDataTable(sql, bInfo);
+            }
+
+            lbl_HED_ID.Text = dt.Rows[0]["HED_ID"].ToString();
+            lbl_SumScheduledTime.Text = "合計予定時間 " + dt.Rows[0]["PLAN_TIME_SUM"].ToString() + "時間";
+            lbl_SumEndedTime.Text = "合計終了時間 " + dt.Rows[0]["RESULT_TIME_SUM"].ToString() + "時間";
+            txtBox_Comment1.Text = dt.Rows[0]["COMMENT1"].ToString();
+            txtBox_Comment2.Text = dt.Rows[0]["COMMENT2"].ToString();
+
         }
         private void btn_Search_Click(object sender, EventArgs e)
         {
