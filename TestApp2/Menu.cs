@@ -91,7 +91,7 @@ namespace WorkSheetApp
                     userID = dt.Rows[0]["USER_ID"].ToString();
                     userName = dt.Rows[0]["USER_NAME"].ToString();
                 }
-                catch (Exception ex)
+                catch
                 {
                     MessageBox.Show("ユーザ情報が取得できませんでした", "ユーザ情報取得エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
@@ -100,7 +100,7 @@ namespace WorkSheetApp
 
             string workDate = StringUtil.DateToString(dPicker_Date);
 
-            Form_WorkSheet fm = new(userID, userName, workDate);
+            Form_WorkSheet fm = new(userID, userName, workDate, dPicker_Date);
             fm.Show();
         }
     }

@@ -16,13 +16,14 @@ namespace WorkSheetApp
 {
     public partial class Form_WorkSheet : Form
     {
-        public Form_WorkSheet(string userID, string userName, string workDate)
+        public Form_WorkSheet(string userID, string userName, string workDate, DateTimePicker dtPickerInput)
         {
             InitializeComponent();
 
             lbl_USER_ID.Text = userID;
             lbl_Name.Text = userName;
             txtBox_Date.Text = workDate;
+            dtPicker_Date = dtPickerInput;
         }
 
         private void WorkSheet_Load(object sender, EventArgs e)

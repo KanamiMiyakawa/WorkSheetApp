@@ -57,6 +57,7 @@ namespace WorkSheetApp
             this.btn_DeleteTask = new System.Windows.Forms.Button();
             this.lbl_HED_ID = new System.Windows.Forms.Label();
             this.lbl_USER_ID = new System.Windows.Forms.Label();
+            this.dtPicker_Date = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.data_Task)).BeginInit();
             this.SuspendLayout();
             // 
@@ -200,7 +201,7 @@ namespace WorkSheetApp
             // txtBox_Date
             // 
             this.txtBox_Date.Font = new System.Drawing.Font("Yu Gothic UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtBox_Date.Location = new System.Drawing.Point(227, 164);
+            this.txtBox_Date.Location = new System.Drawing.Point(475, 107);
             this.txtBox_Date.Name = "txtBox_Date";
             this.txtBox_Date.Size = new System.Drawing.Size(155, 34);
             this.txtBox_Date.TabIndex = 4;
@@ -344,12 +345,22 @@ namespace WorkSheetApp
             this.lbl_USER_ID.TabIndex = 18;
             this.lbl_USER_ID.Text = "USER_ID";
             // 
+            // dtPicker_Date
+            // 
+            this.dtPicker_Date.Font = new System.Drawing.Font("Yu Gothic UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.dtPicker_Date.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtPicker_Date.Location = new System.Drawing.Point(227, 162);
+            this.dtPicker_Date.Name = "dtPicker_Date";
+            this.dtPicker_Date.Size = new System.Drawing.Size(181, 34);
+            this.dtPicker_Date.TabIndex = 19;
+            // 
             // Form_WorkSheet
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(874, 749);
+            this.Controls.Add(this.dtPicker_Date);
             this.Controls.Add(this.lbl_USER_ID);
             this.Controls.Add(this.lbl_HED_ID);
             this.Controls.Add(this.btn_DeleteTask);
@@ -410,6 +421,7 @@ namespace WorkSheetApp
         private System.Windows.Forms.DataGridViewCheckBoxColumn column_Finished;
         private System.Windows.Forms.DataGridViewTextBoxColumn HED_ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn DTL_ID;
+        private System.Windows.Forms.DateTimePicker dtPicker_Date;
     }
 }
 
