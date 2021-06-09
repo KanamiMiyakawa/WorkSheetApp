@@ -166,5 +166,15 @@ namespace WorkSheetApp
                 DataGridUtil.UpdateDataGrid(data_Task, lbl_HED_ID.Text);
             }
         }
+
+        private void dtPicker_Date_Leave(object sender, EventArgs e)
+        {
+            btn_Search_Click(null, null);
+        }
+
+        private void dtPicker_Date_CloseUp(object sender, EventArgs e)
+        {
+            btn_Search_Click(null, null);
+        }
     }
 }

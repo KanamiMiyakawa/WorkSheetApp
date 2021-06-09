@@ -343,6 +343,8 @@ namespace WorkSheetApp
             this.dtPicker_Date.Name = "dtPicker_Date";
             this.dtPicker_Date.Size = new System.Drawing.Size(181, 34);
             this.dtPicker_Date.TabIndex = 19;
+            this.dtPicker_Date.CloseUp += new System.EventHandler(this.dtPicker_Date_CloseUp);
+            this.dtPicker_Date.Leave += new System.EventHandler(this.dtPicker_Date_Leave);
             // 
             // Form_WorkSheet
             // 
