@@ -175,8 +175,60 @@ namespace WorkSheetApp
                     dbMain.RollBackTran();
 
                     MessageBox.Show(ex.Message, "作業情報更新エラー");
+                    return;
                 }
             }
+
+            //作業時間を合計する処理
+            using (SQLMain dbMain = new SQLMain())
+            {
+                try
+                {
+                    dbMain.BeginTran();
+
+                    //作業時間を合計
+                    DataTable dt;
+                    TimeSpan SumPlanTime = new TimeSpan(0);
+                    TimeSpan SumResultTime = new TimeSpan(0);
+
+                    string sql = "SELECT * FROM WORK_PLAN_DTL WHERE HED_ID = @HED_ID";
+                    List<SQLParamIF> bInfo1 = new List<SQLParamIF>();
+                    bInfo1.Add(new SQLParamIF("@HED_ID", lbl_HED_ID.Text, ColumnType.Numeric));
+
+                    dt = dbMain.GetDataTable(sql, bInfo1);
+
+                    for(int i = 0; i < dt.Rows.Count; i ++)
+                    {
+                        SumPlanTime = SumPlanTime + TimeSpan.Parse(dt.Rows[i][5].ToString()) - TimeSpan.Parse(dt.Rows[i][4].ToString());
+
+                        object dt8 = dt.Rows[i][8];
+
+                        if (dt.Rows[i][8].Equals(true))
+                        {
+                            SumResultTime = SumResultTime + TimeSpan.Parse(dt.Rows[i][7].ToString()) - TimeSpan.Parse(dt.Rows[i][6].ToString());
+                        }
+                    }
+
+                    //合計値をDBに保存
+                    sql = "UPDATE WORK_PLAN_HED SET PLAN_TIME_SUM = @PLAN_TIME_SUM, RESULT_TIME_SUM = @RESULT_TIME_SUM WHERE HED_ID = @HED_ID";
+                    List<SQLParamIF> bInfo2 = new List<SQLParamIF>();
+                    bInfo2.Add(new SQLParamIF("@PLAN_TIME_SUM", Math.Round(SumPlanTime.TotalHours,1, MidpointRounding.AwayFromZero), ColumnType.Numeric));
+                    bInfo2.Add(new SQLParamIF("@RESULT_TIME_SUM", Math.Round(SumResultTime.TotalHours, 1, MidpointRounding.AwayFromZero), ColumnType.Numeric));
+                    bInfo2.Add(new SQLParamIF("@HED_ID", lbl_HED_ID.Text, ColumnType.Numeric));
+
+                    dbMain.ExecuteTransaction(sql, bInfo2);
+
+                    dbMain.CommitTran();
+                }
+                catch (Exception ex)
+                {
+                    dbMain.RollBackTran();
+
+                    MessageBox.Show(ex.Message, "作業時間合計エラー");
+                    return;
+                }
+            }
+
         }
 
         private void btn_Cancel_Click(object sender, EventArgs e)
