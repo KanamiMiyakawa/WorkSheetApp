@@ -118,7 +118,7 @@ namespace WorkSheetApp
             this.time_PlanTimeStart.Location = new System.Drawing.Point(76, 273);
             this.time_PlanTimeStart.Name = "time_PlanTimeStart";
             this.time_PlanTimeStart.ShowUpDown = true;
-            this.time_PlanTimeStart.Size = new System.Drawing.Size(80, 29);
+            this.time_PlanTimeStart.Size = new System.Drawing.Size(91, 29);
             this.time_PlanTimeStart.TabIndex = 7;
             // 
             // lbl_mark1
@@ -136,10 +136,10 @@ namespace WorkSheetApp
             this.time_PlanTimeEnd.CustomFormat = "HH:mm";
             this.time_PlanTimeEnd.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.time_PlanTimeEnd.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.time_PlanTimeEnd.Location = new System.Drawing.Point(209, 273);
+            this.time_PlanTimeEnd.Location = new System.Drawing.Point(198, 273);
             this.time_PlanTimeEnd.Name = "time_PlanTimeEnd";
             this.time_PlanTimeEnd.ShowUpDown = true;
-            this.time_PlanTimeEnd.Size = new System.Drawing.Size(80, 29);
+            this.time_PlanTimeEnd.Size = new System.Drawing.Size(91, 29);
             this.time_PlanTimeEnd.TabIndex = 9;
             // 
             // time_ResultTimeEnd
@@ -147,10 +147,11 @@ namespace WorkSheetApp
             this.time_ResultTimeEnd.CustomFormat = "HH:mm";
             this.time_ResultTimeEnd.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.time_ResultTimeEnd.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.time_ResultTimeEnd.Location = new System.Drawing.Point(209, 340);
+            this.time_ResultTimeEnd.Location = new System.Drawing.Point(198, 340);
             this.time_ResultTimeEnd.Name = "time_ResultTimeEnd";
+            this.time_ResultTimeEnd.ShowCheckBox = true;
             this.time_ResultTimeEnd.ShowUpDown = true;
-            this.time_ResultTimeEnd.Size = new System.Drawing.Size(80, 29);
+            this.time_ResultTimeEnd.Size = new System.Drawing.Size(91, 29);
             this.time_ResultTimeEnd.TabIndex = 13;
             // 
             // lbl_mark2
@@ -170,8 +171,9 @@ namespace WorkSheetApp
             this.time_ResultTimeStart.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.time_ResultTimeStart.Location = new System.Drawing.Point(76, 340);
             this.time_ResultTimeStart.Name = "time_ResultTimeStart";
+            this.time_ResultTimeStart.ShowCheckBox = true;
             this.time_ResultTimeStart.ShowUpDown = true;
-            this.time_ResultTimeStart.Size = new System.Drawing.Size(80, 29);
+            this.time_ResultTimeStart.Size = new System.Drawing.Size(91, 29);
             this.time_ResultTimeStart.TabIndex = 11;
             // 
             // lbl_ResultTitle
