@@ -52,7 +52,6 @@ namespace WorkSheetApp
 
         private void btn_Save_Click(object sender, EventArgs e)
         {
-
             //入力チェック
             if (txtBox_Gaiyou.Text == "")
             {
@@ -88,8 +87,25 @@ namespace WorkSheetApp
                         bInfo.Add(new SQLParamIF("@MEISAI", txtBox_Meisai.Text, ColumnType.Varchar));
                         bInfo.Add(new SQLParamIF("@PLAN_TIME_START", time_PlanTimeStart.Value.ToString("HH:mm"), ColumnType.TimeStamp));
                         bInfo.Add(new SQLParamIF("@PLAN_TIME_END", time_PlanTimeEnd.Value.ToString("HH:mm"), ColumnType.TimeStamp));
-                        bInfo.Add(new SQLParamIF("@RESULT_TIME_START", time_ResultTimeStart.Value.ToString("HH:mm"), ColumnType.TimeStamp));
-                        bInfo.Add(new SQLParamIF("@RESULT_TIME_END", time_ResultTimeEnd.Value.ToString("HH:mm"), ColumnType.TimeStamp));
+
+                        if (time_ResultTimeStart.Checked == true)
+                        {
+                            bInfo.Add(new SQLParamIF("@RESULT_TIME_START", time_ResultTimeStart.Value.ToString("HH:mm"), ColumnType.TimeStamp));
+                        }
+                        else
+                        {
+                            bInfo.Add(new SQLParamIF("@RESULT_TIME_START", "", ColumnType.TimeStamp));
+                        }
+
+                        if (time_ResultTimeEnd.Checked == true)
+                        {
+                            bInfo.Add(new SQLParamIF("@RESULT_TIME_END", time_ResultTimeEnd.Value.ToString("HH:mm"), ColumnType.TimeStamp));
+                        }
+                        else
+                        {
+                            bInfo.Add(new SQLParamIF("@RESULT_TIME_END", "", ColumnType.TimeStamp));
+                        }
+
                         bInfo.Add(new SQLParamIF("@END_FLAG", check_EndFlag.Checked, ColumnType.Varchar));
                         dbMain.ExecuteTransaction(sql, bInfo);
                     }
@@ -101,8 +117,25 @@ namespace WorkSheetApp
                         bInfo.Add(new SQLParamIF("@MEISAI", txtBox_Meisai.Text, ColumnType.Varchar));
                         bInfo.Add(new SQLParamIF("@PLAN_TIME_START", time_PlanTimeStart.Value.ToString("HH:mm"), ColumnType.TimeStamp));
                         bInfo.Add(new SQLParamIF("@PLAN_TIME_END", time_PlanTimeEnd.Value.ToString("HH:mm"), ColumnType.TimeStamp));
-                        bInfo.Add(new SQLParamIF("@RESULT_TIME_START", time_ResultTimeStart.Value.ToString("HH:mm"), ColumnType.TimeStamp));
-                        bInfo.Add(new SQLParamIF("@RESULT_TIME_END", time_ResultTimeEnd.Value.ToString("HH:mm"), ColumnType.TimeStamp));
+
+                        if (time_ResultTimeStart.Checked == true)
+                        {
+                            bInfo.Add(new SQLParamIF("@RESULT_TIME_START", time_ResultTimeStart.Value.ToString("HH:mm"), ColumnType.TimeStamp));
+                        }
+                        else
+                        {
+                            bInfo.Add(new SQLParamIF("@RESULT_TIME_START", "", ColumnType.TimeStamp));
+                        }
+
+                        if (time_ResultTimeEnd.Checked == true)
+                        {
+                            bInfo.Add(new SQLParamIF("@RESULT_TIME_END", time_ResultTimeEnd.Value.ToString("HH:mm"), ColumnType.TimeStamp));
+                        }
+                        else
+                        {
+                            bInfo.Add(new SQLParamIF("@RESULT_TIME_END", "", ColumnType.TimeStamp));
+                        }
+
                         bInfo.Add(new SQLParamIF("@END_FLAG", check_EndFlag.Checked, ColumnType.Varchar));
                         bInfo.Add(new SQLParamIF("@DTL_ID", lbl_DTL_ID.Text, ColumnType.Varchar));
                         dbMain.ExecuteTransaction(sql, bInfo);
