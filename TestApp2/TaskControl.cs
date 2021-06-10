@@ -37,8 +37,24 @@ namespace WorkSheetApp
             //Timespan型をDateTime型に変換、年月日はあとで捨てるので適当に補う
             time_PlanTimeStart.Value = DateTime.Parse("2020-01-01 " + dr.Cells[4].FormattedValue);
             time_PlanTimeEnd.Value = DateTime.Parse("2020-01-01 " + dr.Cells[5].FormattedValue);
-            time_ResultTimeStart.Value = DateTime.Parse("2020-01-01 " + dr.Cells[6].FormattedValue);
-            time_ResultTimeEnd.Value = DateTime.Parse("2020-01-01 " + dr.Cells[7].FormattedValue);
+
+            if (dr.Cells[6].Value.ToString() == "")
+            {
+                time_ResultTimeStart.Checked = false;
+            }
+            else
+            {
+                time_ResultTimeStart.Value = DateTime.Parse("2020-01-01 " + dr.Cells[6].FormattedValue);
+            }
+
+            if (dr.Cells[7].Value.ToString() == "")
+            {
+                time_ResultTimeEnd.Checked = false;
+            }
+            else
+            {
+                time_ResultTimeEnd.Value = DateTime.Parse("2020-01-01 " + dr.Cells[7].FormattedValue);
+            }
 
             check_EndFlag.Checked = (bool)dr.Cells[8].Value;
 
