@@ -167,8 +167,6 @@ namespace WorkSheetApp
                     {
                         MessageBox.Show("作業情報を更新しました", "更新", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
-
-                    this.Close();
                 }
                 catch (Exception ex)
                 {
@@ -228,7 +226,7 @@ namespace WorkSheetApp
                     return;
                 }
             }
-
+            this.Close();
         }
 
         private void btn_Cancel_Click(object sender, EventArgs e)

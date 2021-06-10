@@ -71,6 +71,10 @@ namespace WorkSheetApp
             fm.ShowDialog();
 
             DataGridUtil.UpdateDataGrid(data_Task, lbl_HED_ID.Text);
+
+            DataTable dt = SQLUtil.SearchWorkPlanHed(int.Parse(lbl_HED_ID.Text));
+            lbl_SumScheduledTime.Text = "合計予定時間 " + dt.Rows[0]["PLAN_TIME_SUM"].ToString() + "時間";
+            lbl_SumEndedTime.Text = "合計終了時間 " + dt.Rows[0]["RESULT_TIME_SUM"].ToString() + "時間";
         }
         private void btn_EditTask_Click(object sender, EventArgs e)
         {
@@ -86,6 +90,10 @@ namespace WorkSheetApp
             fm.ShowDialog();
 
             DataGridUtil.UpdateDataGrid(data_Task, lbl_HED_ID.Text);
+
+            DataTable dt = SQLUtil.SearchWorkPlanHed(int.Parse(lbl_HED_ID.Text));
+            lbl_SumScheduledTime.Text = "合計予定時間 " + dt.Rows[0]["PLAN_TIME_SUM"].ToString() + "時間";
+            lbl_SumEndedTime.Text = "合計終了時間 " + dt.Rows[0]["RESULT_TIME_SUM"].ToString() + "時間";
         }
 
         private void btn_CommentUpdate_Click(object sender, EventArgs e)

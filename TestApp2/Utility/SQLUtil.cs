@@ -34,6 +34,25 @@ namespace Utility
                 }
             }
         }
+        public static DataTable SearchWorkPlanHed(int HED_ID)
+        {
+            using (SQLMain dbMain = new SQLMain())
+            {
+                try
+                {
+                    string sql = "SELECT * FROM WORK_PLAN_HED WHERE HED_ID = @HED_ID";
+                    List<SQLParamIF> bInfo = new List<SQLParamIF>();
+                    bInfo.Add(new SQLParamIF("@HED_ID", HED_ID, ColumnType.Numeric));
+
+                    return dbMain.GetDataTable(sql, bInfo);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "日次情報検索エラー");
+                    throw;
+                }
+            }
+        }
         public static void CreateWorkPlanHed(string UserID, string WorkDate)
         {
             using (SQLMain dbMain = new SQLMain())
