@@ -255,8 +255,9 @@ namespace WorkSheetApp
             this.btn_tryConnect.Name = "btn_tryConnect";
             this.btn_tryConnect.Size = new System.Drawing.Size(147, 51);
             this.btn_tryConnect.TabIndex = 10;
-            this.btn_tryConnect.Text = "接続確認";
+            this.btn_tryConnect.Text = "接続テスト";
             this.btn_tryConnect.UseVisualStyleBackColor = false;
+            this.btn_tryConnect.Click += new System.EventHandler(this.btn_tryConnect_Click);
             // 
             // btn_saveSetting
             // 
