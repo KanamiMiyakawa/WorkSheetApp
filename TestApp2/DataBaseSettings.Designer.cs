@@ -32,21 +32,21 @@ namespace WorkSheetApp
             this.lbl_oldServerNameTitle = new System.Windows.Forms.Label();
             this.lbl_oldServerName = new System.Windows.Forms.Label();
             this.group_oldSettings = new System.Windows.Forms.GroupBox();
-            this.lbl_oldUserNameTitle = new System.Windows.Forms.Label();
-            this.lbl_oldUserName = new System.Windows.Forms.Label();
-            this.lbl_oldPasswordTitle = new System.Windows.Forms.Label();
-            this.lbl_oldPassword = new System.Windows.Forms.Label();
-            this.lbl_oldDBNameTitle = new System.Windows.Forms.Label();
             this.lbl_oldDBName = new System.Windows.Forms.Label();
+            this.lbl_oldDBNameTitle = new System.Windows.Forms.Label();
+            this.lbl_oldPassword = new System.Windows.Forms.Label();
+            this.lbl_oldPasswordTitle = new System.Windows.Forms.Label();
+            this.lbl_oldUserName = new System.Windows.Forms.Label();
+            this.lbl_oldUserNameTitle = new System.Windows.Forms.Label();
             this.group_newSettings = new System.Windows.Forms.GroupBox();
+            this.txtBox_newDBName = new System.Windows.Forms.TextBox();
+            this.txtBox_newPassword = new System.Windows.Forms.TextBox();
+            this.txtBox_newUserName = new System.Windows.Forms.TextBox();
+            this.txtBox_newServerName = new System.Windows.Forms.TextBox();
             this.lbl_newDBNameTitle = new System.Windows.Forms.Label();
             this.lbl_newPasswordTitle = new System.Windows.Forms.Label();
             this.lbl_newUserNameTitle = new System.Windows.Forms.Label();
             this.lbl_newServerNameTitle = new System.Windows.Forms.Label();
-            this.txtBox_newServerName = new System.Windows.Forms.TextBox();
-            this.txtBox_newUserName = new System.Windows.Forms.TextBox();
-            this.txtBox_newPassword = new System.Windows.Forms.TextBox();
-            this.txtBox_newDBName = new System.Windows.Forms.TextBox();
             this.btn_tryConnect = new System.Windows.Forms.Button();
             this.btn_saveSetting = new System.Windows.Forms.Button();
             this.btn_closeWindow = new System.Windows.Forms.Button();
@@ -93,36 +93,26 @@ namespace WorkSheetApp
             this.group_oldSettings.TabStop = false;
             this.group_oldSettings.Text = "現在の設定";
             // 
-            // lbl_oldUserNameTitle
+            // lbl_oldDBName
             // 
-            this.lbl_oldUserNameTitle.AutoSize = true;
-            this.lbl_oldUserNameTitle.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lbl_oldUserNameTitle.Location = new System.Drawing.Point(28, 110);
-            this.lbl_oldUserNameTitle.Name = "lbl_oldUserNameTitle";
-            this.lbl_oldUserNameTitle.Size = new System.Drawing.Size(72, 21);
-            this.lbl_oldUserNameTitle.TabIndex = 3;
-            this.lbl_oldUserNameTitle.Text = "ユーザー名";
+            this.lbl_oldDBName.AutoSize = true;
+            this.lbl_oldDBName.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lbl_oldDBName.Location = new System.Drawing.Point(28, 275);
+            this.lbl_oldDBName.Margin = new System.Windows.Forms.Padding(3, 0, 3, 30);
+            this.lbl_oldDBName.Name = "lbl_oldDBName";
+            this.lbl_oldDBName.Size = new System.Drawing.Size(72, 21);
+            this.lbl_oldDBName.TabIndex = 8;
+            this.lbl_oldDBName.Text = "DBName";
             // 
-            // lbl_oldUserName
+            // lbl_oldDBNameTitle
             // 
-            this.lbl_oldUserName.AutoSize = true;
-            this.lbl_oldUserName.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lbl_oldUserName.Location = new System.Drawing.Point(28, 131);
-            this.lbl_oldUserName.Margin = new System.Windows.Forms.Padding(3, 0, 3, 30);
-            this.lbl_oldUserName.Name = "lbl_oldUserName";
-            this.lbl_oldUserName.Size = new System.Drawing.Size(104, 21);
-            this.lbl_oldUserName.TabIndex = 4;
-            this.lbl_oldUserName.Text = "DBUserName";
-            // 
-            // lbl_oldPasswordTitle
-            // 
-            this.lbl_oldPasswordTitle.AutoSize = true;
-            this.lbl_oldPasswordTitle.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lbl_oldPasswordTitle.Location = new System.Drawing.Point(28, 182);
-            this.lbl_oldPasswordTitle.Name = "lbl_oldPasswordTitle";
-            this.lbl_oldPasswordTitle.Size = new System.Drawing.Size(68, 21);
-            this.lbl_oldPasswordTitle.TabIndex = 5;
-            this.lbl_oldPasswordTitle.Text = "パスワード";
+            this.lbl_oldDBNameTitle.AutoSize = true;
+            this.lbl_oldDBNameTitle.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lbl_oldDBNameTitle.Location = new System.Drawing.Point(28, 254);
+            this.lbl_oldDBNameTitle.Name = "lbl_oldDBNameTitle";
+            this.lbl_oldDBNameTitle.Size = new System.Drawing.Size(96, 21);
+            this.lbl_oldDBNameTitle.TabIndex = 7;
+            this.lbl_oldDBNameTitle.Text = "データベース名";
             // 
             // lbl_oldPassword
             // 
@@ -135,26 +125,36 @@ namespace WorkSheetApp
             this.lbl_oldPassword.TabIndex = 6;
             this.lbl_oldPassword.Text = "********";
             // 
-            // lbl_oldDBNameTitle
+            // lbl_oldPasswordTitle
             // 
-            this.lbl_oldDBNameTitle.AutoSize = true;
-            this.lbl_oldDBNameTitle.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lbl_oldDBNameTitle.Location = new System.Drawing.Point(28, 254);
-            this.lbl_oldDBNameTitle.Name = "lbl_oldDBNameTitle";
-            this.lbl_oldDBNameTitle.Size = new System.Drawing.Size(96, 21);
-            this.lbl_oldDBNameTitle.TabIndex = 7;
-            this.lbl_oldDBNameTitle.Text = "データベース名";
+            this.lbl_oldPasswordTitle.AutoSize = true;
+            this.lbl_oldPasswordTitle.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lbl_oldPasswordTitle.Location = new System.Drawing.Point(28, 182);
+            this.lbl_oldPasswordTitle.Name = "lbl_oldPasswordTitle";
+            this.lbl_oldPasswordTitle.Size = new System.Drawing.Size(68, 21);
+            this.lbl_oldPasswordTitle.TabIndex = 5;
+            this.lbl_oldPasswordTitle.Text = "パスワード";
             // 
-            // lbl_oldDBName
+            // lbl_oldUserName
             // 
-            this.lbl_oldDBName.AutoSize = true;
-            this.lbl_oldDBName.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lbl_oldDBName.Location = new System.Drawing.Point(28, 275);
-            this.lbl_oldDBName.Margin = new System.Windows.Forms.Padding(3, 0, 3, 30);
-            this.lbl_oldDBName.Name = "lbl_oldDBName";
-            this.lbl_oldDBName.Size = new System.Drawing.Size(72, 21);
-            this.lbl_oldDBName.TabIndex = 8;
-            this.lbl_oldDBName.Text = "DBName";
+            this.lbl_oldUserName.AutoSize = true;
+            this.lbl_oldUserName.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lbl_oldUserName.Location = new System.Drawing.Point(28, 131);
+            this.lbl_oldUserName.Margin = new System.Windows.Forms.Padding(3, 0, 3, 30);
+            this.lbl_oldUserName.Name = "lbl_oldUserName";
+            this.lbl_oldUserName.Size = new System.Drawing.Size(104, 21);
+            this.lbl_oldUserName.TabIndex = 4;
+            this.lbl_oldUserName.Text = "DBUserName";
+            // 
+            // lbl_oldUserNameTitle
+            // 
+            this.lbl_oldUserNameTitle.AutoSize = true;
+            this.lbl_oldUserNameTitle.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lbl_oldUserNameTitle.Location = new System.Drawing.Point(28, 110);
+            this.lbl_oldUserNameTitle.Name = "lbl_oldUserNameTitle";
+            this.lbl_oldUserNameTitle.Size = new System.Drawing.Size(72, 21);
+            this.lbl_oldUserNameTitle.TabIndex = 3;
+            this.lbl_oldUserNameTitle.Text = "ユーザー名";
             // 
             // group_newSettings
             // 
@@ -173,6 +173,38 @@ namespace WorkSheetApp
             this.group_newSettings.TabIndex = 9;
             this.group_newSettings.TabStop = false;
             this.group_newSettings.Text = "新しい設定";
+            // 
+            // txtBox_newDBName
+            // 
+            this.txtBox_newDBName.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtBox_newDBName.Location = new System.Drawing.Point(28, 278);
+            this.txtBox_newDBName.Name = "txtBox_newDBName";
+            this.txtBox_newDBName.Size = new System.Drawing.Size(238, 29);
+            this.txtBox_newDBName.TabIndex = 12;
+            // 
+            // txtBox_newPassword
+            // 
+            this.txtBox_newPassword.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtBox_newPassword.Location = new System.Drawing.Point(28, 206);
+            this.txtBox_newPassword.Name = "txtBox_newPassword";
+            this.txtBox_newPassword.Size = new System.Drawing.Size(238, 29);
+            this.txtBox_newPassword.TabIndex = 11;
+            // 
+            // txtBox_newUserName
+            // 
+            this.txtBox_newUserName.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtBox_newUserName.Location = new System.Drawing.Point(28, 134);
+            this.txtBox_newUserName.Name = "txtBox_newUserName";
+            this.txtBox_newUserName.Size = new System.Drawing.Size(238, 29);
+            this.txtBox_newUserName.TabIndex = 10;
+            // 
+            // txtBox_newServerName
+            // 
+            this.txtBox_newServerName.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtBox_newServerName.Location = new System.Drawing.Point(28, 62);
+            this.txtBox_newServerName.Name = "txtBox_newServerName";
+            this.txtBox_newServerName.Size = new System.Drawing.Size(238, 29);
+            this.txtBox_newServerName.TabIndex = 9;
             // 
             // lbl_newDBNameTitle
             // 
@@ -214,43 +246,11 @@ namespace WorkSheetApp
             this.lbl_newServerNameTitle.TabIndex = 1;
             this.lbl_newServerNameTitle.Text = "サーバー名";
             // 
-            // txtBox_newServerName
-            // 
-            this.txtBox_newServerName.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtBox_newServerName.Location = new System.Drawing.Point(28, 62);
-            this.txtBox_newServerName.Name = "txtBox_newServerName";
-            this.txtBox_newServerName.Size = new System.Drawing.Size(238, 29);
-            this.txtBox_newServerName.TabIndex = 9;
-            // 
-            // txtBox_newUserName
-            // 
-            this.txtBox_newUserName.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtBox_newUserName.Location = new System.Drawing.Point(28, 134);
-            this.txtBox_newUserName.Name = "txtBox_newUserName";
-            this.txtBox_newUserName.Size = new System.Drawing.Size(238, 29);
-            this.txtBox_newUserName.TabIndex = 10;
-            // 
-            // txtBox_newPassword
-            // 
-            this.txtBox_newPassword.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtBox_newPassword.Location = new System.Drawing.Point(28, 206);
-            this.txtBox_newPassword.Name = "txtBox_newPassword";
-            this.txtBox_newPassword.Size = new System.Drawing.Size(238, 29);
-            this.txtBox_newPassword.TabIndex = 11;
-            // 
-            // txtBox_newDBName
-            // 
-            this.txtBox_newDBName.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtBox_newDBName.Location = new System.Drawing.Point(28, 278);
-            this.txtBox_newDBName.Name = "txtBox_newDBName";
-            this.txtBox_newDBName.Size = new System.Drawing.Size(238, 29);
-            this.txtBox_newDBName.TabIndex = 12;
-            // 
             // btn_tryConnect
             // 
             this.btn_tryConnect.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btn_tryConnect.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_tryConnect.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btn_tryConnect.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_tryConnect.Location = new System.Drawing.Point(760, 90);
             this.btn_tryConnect.Name = "btn_tryConnect";
             this.btn_tryConnect.Size = new System.Drawing.Size(147, 51);
@@ -262,7 +262,7 @@ namespace WorkSheetApp
             // 
             this.btn_saveSetting.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btn_saveSetting.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_saveSetting.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btn_saveSetting.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_saveSetting.Location = new System.Drawing.Point(760, 183);
             this.btn_saveSetting.Name = "btn_saveSetting";
             this.btn_saveSetting.Size = new System.Drawing.Size(147, 51);
@@ -274,7 +274,7 @@ namespace WorkSheetApp
             // 
             this.btn_closeWindow.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btn_closeWindow.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_closeWindow.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btn_closeWindow.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_closeWindow.Location = new System.Drawing.Point(760, 279);
             this.btn_closeWindow.Name = "btn_closeWindow";
             this.btn_closeWindow.Size = new System.Drawing.Size(147, 51);

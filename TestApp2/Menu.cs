@@ -95,7 +95,8 @@ namespace WorkSheetApp
 
         private void btn_DataBaseSettings_Click(object sender, EventArgs e)
         {
-
+            DataBaseSettings fm = new();
+            fm.ShowDialog();
         }
     }
 }
