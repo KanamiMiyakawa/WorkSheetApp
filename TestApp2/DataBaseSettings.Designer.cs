@@ -251,7 +251,7 @@ namespace WorkSheetApp
             this.btn_tryConnect.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btn_tryConnect.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_tryConnect.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btn_tryConnect.Location = new System.Drawing.Point(760, 90);
+            this.btn_tryConnect.Location = new System.Drawing.Point(742, 90);
             this.btn_tryConnect.Name = "btn_tryConnect";
             this.btn_tryConnect.Size = new System.Drawing.Size(147, 51);
             this.btn_tryConnect.TabIndex = 10;
@@ -264,24 +264,26 @@ namespace WorkSheetApp
             this.btn_saveSetting.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btn_saveSetting.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_saveSetting.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btn_saveSetting.Location = new System.Drawing.Point(760, 183);
+            this.btn_saveSetting.Location = new System.Drawing.Point(742, 183);
             this.btn_saveSetting.Name = "btn_saveSetting";
             this.btn_saveSetting.Size = new System.Drawing.Size(147, 51);
             this.btn_saveSetting.TabIndex = 11;
             this.btn_saveSetting.Text = "設定の変更";
             this.btn_saveSetting.UseVisualStyleBackColor = false;
+            this.btn_saveSetting.Click += new System.EventHandler(this.btn_saveSetting_Click);
             // 
             // btn_closeWindow
             // 
             this.btn_closeWindow.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btn_closeWindow.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_closeWindow.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btn_closeWindow.Location = new System.Drawing.Point(760, 279);
+            this.btn_closeWindow.Location = new System.Drawing.Point(742, 279);
             this.btn_closeWindow.Name = "btn_closeWindow";
             this.btn_closeWindow.Size = new System.Drawing.Size(147, 51);
             this.btn_closeWindow.TabIndex = 12;
             this.btn_closeWindow.Text = "変更せずに閉じる";
             this.btn_closeWindow.UseVisualStyleBackColor = false;
+            this.btn_closeWindow.Click += new System.EventHandler(this.btn_closeWindow_Click);
             // 
             // DataBaseSettings
             // 

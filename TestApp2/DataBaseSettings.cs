@@ -52,5 +52,35 @@ namespace WorkSheetApp
                 _conn = null;
             }
         }
+
+        private void btn_saveSetting_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var configFile = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+                var DBSettings = configFile.AppSettings.Settings;
+
+                DBSettings["dbServer"].Value = txtBox_newServerName.Text;
+                DBSettings["dbUser"].Value = txtBox_newUserName.Text;
+                DBSettings["dbPwd"].Value = txtBox_newPassword.Text;
+                DBSettings["dbName"].Value = txtBox_newDBName.Text;
+
+                configFile.Save(ConfigurationSaveMode.Modified);
+                ConfigurationManager.RefreshSection(configFile.AppSettings.SectionInformation.Name);
+
+                MessageBox.Show("新しい設定を保存しました", "接続設定の変更");
+
+                this.Close();
+            }
+            catch (ConfigurationErrorsException)
+            {
+                MessageBox.Show("設定の保存に失敗しました", "接続設定の変更");
+            }
+        }
+
+        private void btn_closeWindow_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
