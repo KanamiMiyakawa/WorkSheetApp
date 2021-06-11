@@ -35,6 +35,7 @@ namespace WorkSheetApp
             this.dPicker_Date = new System.Windows.Forms.DateTimePicker();
             this.btn_CreateUser = new System.Windows.Forms.Button();
             this.btn_OpenWorkSheet = new System.Windows.Forms.Button();
+            this.btn_DataBaseSettings = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txtBox_Name
@@ -100,11 +101,25 @@ namespace WorkSheetApp
             this.btn_OpenWorkSheet.UseVisualStyleBackColor = false;
             this.btn_OpenWorkSheet.Click += new System.EventHandler(this.btn_OpenWorkSheet_Click);
             // 
+            // btn_DataBaseSettings
+            // 
+            this.btn_DataBaseSettings.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btn_DataBaseSettings.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_DataBaseSettings.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btn_DataBaseSettings.Location = new System.Drawing.Point(335, 227);
+            this.btn_DataBaseSettings.Name = "btn_DataBaseSettings";
+            this.btn_DataBaseSettings.Size = new System.Drawing.Size(147, 55);
+            this.btn_DataBaseSettings.TabIndex = 7;
+            this.btn_DataBaseSettings.Text = "データベース設定";
+            this.btn_DataBaseSettings.UseVisualStyleBackColor = false;
+            this.btn_DataBaseSettings.Click += new System.EventHandler(this.btn_DataBaseSettings_Click);
+            // 
             // Form_Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(532, 240);
+            this.ClientSize = new System.Drawing.Size(532, 316);
+            this.Controls.Add(this.btn_DataBaseSettings);
             this.Controls.Add(this.btn_OpenWorkSheet);
             this.Controls.Add(this.btn_CreateUser);
             this.Controls.Add(this.dPicker_Date);
@@ -129,5 +144,6 @@ namespace WorkSheetApp
         private System.Windows.Forms.DateTimePicker dPicker_Date;
         private System.Windows.Forms.Button btn_CreateUser;
         private System.Windows.Forms.Button btn_OpenWorkSheet;
+        private System.Windows.Forms.Button btn_DataBaseSettings;
     }
 }

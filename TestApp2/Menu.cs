@@ -92,5 +92,10 @@ namespace WorkSheetApp
             Form_WorkSheet fm = new(userID, userName, dPicker_Date);
             fm.Show();
         }
+
+        private void btn_DataBaseSettings_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
