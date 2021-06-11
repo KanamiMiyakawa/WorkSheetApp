@@ -177,8 +177,6 @@ namespace WorkSheetApp
                 }
             }
 
-            SQLUtil.UpdateWorkTimeSumOnHED(lbl_HED_ID.Text);
-
             this.Close();
         }
 

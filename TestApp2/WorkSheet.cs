@@ -72,9 +72,12 @@ namespace WorkSheetApp
 
             DataGridUtil.UpdateDataGrid(data_Task, lbl_HED_ID.Text);
 
-            DataTable dt = SQLUtil.SearchWorkPlanHed(int.Parse(lbl_HED_ID.Text));
-            lbl_SumScheduledTime.Text = "合計予定時間 " + dt.Rows[0]["PLAN_TIME_SUM"].ToString() + "時間";
-            lbl_SumEndedTime.Text = "合計終了時間 " + dt.Rows[0]["RESULT_TIME_SUM"].ToString() + "時間";
+            //作業時間合計を再計算
+            var timeList = new List<string>();
+            timeList = SQLUtil.UpdateWorkTimeSumOnHED(lbl_HED_ID.Text);
+            lbl_SumScheduledTime.Text = "合計予定時間 " + timeList[0] + "時間";
+            lbl_SumEndedTime.Text = "合計終了時間 " + timeList[1] + "時間";
+
         }
         private void btn_EditTask_Click(object sender, EventArgs e)
         {
@@ -91,9 +94,11 @@ namespace WorkSheetApp
 
             DataGridUtil.UpdateDataGrid(data_Task, lbl_HED_ID.Text);
 
-            DataTable dt = SQLUtil.SearchWorkPlanHed(int.Parse(lbl_HED_ID.Text));
-            lbl_SumScheduledTime.Text = "合計予定時間 " + dt.Rows[0]["PLAN_TIME_SUM"].ToString() + "時間";
-            lbl_SumEndedTime.Text = "合計終了時間 " + dt.Rows[0]["RESULT_TIME_SUM"].ToString() + "時間";
+            //作業時間合計を再計算
+            var timeList = new List<string>();
+            timeList = SQLUtil.UpdateWorkTimeSumOnHED(lbl_HED_ID.Text);
+            lbl_SumScheduledTime.Text = "合計予定時間 " + timeList[0] + "時間";
+            lbl_SumEndedTime.Text = "合計終了時間 " + timeList[1] + "時間";
         }
 
         private void btn_CommentUpdate_Click(object sender, EventArgs e)
@@ -176,6 +181,12 @@ namespace WorkSheetApp
                 }
 
                 DataGridUtil.UpdateDataGrid(data_Task, lbl_HED_ID.Text);
+
+                //作業時間合計を再計算
+                var timeList = new List<string>();
+                timeList = SQLUtil.UpdateWorkTimeSumOnHED(lbl_HED_ID.Text);
+                lbl_SumScheduledTime.Text = "合計予定時間 " + timeList[0] + "時間";
+                lbl_SumEndedTime.Text = "合計終了時間 " + timeList[1] + "時間";
             }
         }
 

@@ -79,8 +79,13 @@ namespace Utility
                 }
             }
         }
-
-        public static void UpdateWorkTimeSumOnHED(string HED_ID)
+        /// <summary>
+        /// 渡されたHED_IDの子であるWorkPlanDTLを検索し、作業予定時間と作業実行時間を合計し、
+        /// HED_IDのWorkPlanSumとWorkResultSumを更新
+        /// さらに集計した作業予定時間と作業実行時間をList<string>で返す
+        /// </summary>
+        /// <param name="HED_ID"></param>
+        public static List<string> UpdateWorkTimeSumOnHED(string HED_ID)
         {
             using (SQLMain dbMain = new SQLMain())
             {
@@ -112,15 +117,24 @@ namespace Utility
                     }
 
                     //合計値をDBに保存
+                    string SumPlanTimeRounded = Math.Round(SumPlanTime.TotalHours, 1, MidpointRounding.AwayFromZero).ToString();
+                    string SumResultTimeRounded = Math.Round(SumResultTime.TotalHours, 1, MidpointRounding.AwayFromZero).ToString();
+
                     sql = "UPDATE WORK_PLAN_HED SET PLAN_TIME_SUM = @PLAN_TIME_SUM, RESULT_TIME_SUM = @RESULT_TIME_SUM WHERE HED_ID = @HED_ID";
                     List<SQLParamIF> bInfo2 = new List<SQLParamIF>();
-                    bInfo2.Add(new SQLParamIF("@PLAN_TIME_SUM", Math.Round(SumPlanTime.TotalHours, 1, MidpointRounding.AwayFromZero), ColumnType.Numeric));
-                    bInfo2.Add(new SQLParamIF("@RESULT_TIME_SUM", Math.Round(SumResultTime.TotalHours, 1, MidpointRounding.AwayFromZero), ColumnType.Numeric));
+                    bInfo2.Add(new SQLParamIF("@PLAN_TIME_SUM", SumPlanTimeRounded, ColumnType.Numeric));
+                    bInfo2.Add(new SQLParamIF("@RESULT_TIME_SUM", SumResultTimeRounded, ColumnType.Numeric));
                     bInfo2.Add(new SQLParamIF("@HED_ID", HED_ID, ColumnType.Numeric));
 
                     dbMain.ExecuteTransaction(sql, bInfo2);
 
                     dbMain.CommitTran();
+
+                    var timeList = new List<string>();
+                    timeList.Add(SumPlanTimeRounded);
+                    timeList.Add(SumResultTimeRounded);
+
+                    return timeList;
                 }
                 catch (Exception ex)
                 {
