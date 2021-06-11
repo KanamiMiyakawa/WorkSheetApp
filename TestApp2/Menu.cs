@@ -24,14 +24,9 @@ namespace WorkSheetApp
         private void btn_CreateUser_Click(object sender, EventArgs e)
         {
             //validation
-            if (txtBox_Name.Text == "")
+            if (ValidateUtil.IsValidUserName(txtBox_Name.Text) == false)
             {
-                MessageBox.Show("ユーザー名は必須入力です。", "ユーザー情報エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            else if (txtBox_Name.Text.Length > 40)
-            {
-                MessageBox.Show("ユーザー名の桁数が超過しています。", "ユーザー情報エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("0文字以上40文字以下のユーザー名を入力してください", "ユーザー情報エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -64,14 +59,9 @@ namespace WorkSheetApp
         private void btn_OpenWorkSheet_Click(object sender, EventArgs e)
         {
             //validation
-            if (txtBox_Name.Text == "")
+            if (ValidateUtil.IsValidUserName(txtBox_Name.Text) == false)
             {
-                MessageBox.Show("ユーザー名は必須入力です。", "ユーザー情報エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            else if (txtBox_Name.Text.Length > 40)
-            {
-                MessageBox.Show("ユーザー名の桁数が超過しています。", "ユーザー情報エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("0文字以上40文字以下のユーザー名を入力してください", "ユーザー情報エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 

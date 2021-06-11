@@ -13,6 +13,18 @@ namespace Utility
 
         public const string SPLIT_MARK = "@@";
 
+        public static bool IsValidUserName(string userName)
+        {
+            if (userName.Length > 0 && userName.Length <= 40)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
         /// <summary>
         /// 桁数チェック
         /// </summary>
