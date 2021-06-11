@@ -37,6 +37,18 @@ namespace Utility
             }
         }
 
+        public static bool IsValidGaiyou(string Gaiyou)
+        {
+            if (Gaiyou.Length > 0 && Gaiyou.Length <= 100)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
         /// <summary>
         /// 桁数チェック
         /// </summary>

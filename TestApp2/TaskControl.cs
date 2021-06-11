@@ -68,15 +68,16 @@ namespace WorkSheetApp
 
         private void btn_Save_Click(object sender, EventArgs e)
         {
-            //入力チェック
-            if (txtBox_Gaiyou.Text == "")
+            //Validation
+            if (ValidateUtil.IsValidGaiyou(txtBox_Gaiyou.Text) == false)
             {
-                MessageBox.Show("作業概要は必須入力です。", "作業情報エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("0文字以上100文字以内の作業概要を入力してください", "作業情報エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
-            } 
-            else if (txtBox_Gaiyou.Text.Length > 100)
+            }
+
+            if (ValidateUtil.IsOver2000Length(txtBox_Meisai.Text))
             {
-                MessageBox.Show("作業概要の桁数が超過しています。", "作業情報エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("作業詳細は2000文字以内で入力してください", "作業情報エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
