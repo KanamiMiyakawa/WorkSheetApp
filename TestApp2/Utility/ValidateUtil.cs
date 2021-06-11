@@ -25,6 +25,18 @@ namespace Utility
             }
         }
 
+        public static bool IsOver2000Length(string Comment)
+        {
+            if (Comment.Length > 2000)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
         /// <summary>
         /// 桁数チェック
         /// </summary>

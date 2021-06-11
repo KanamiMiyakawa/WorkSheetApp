@@ -103,6 +103,14 @@ namespace WorkSheetApp
 
         private void btn_CommentUpdate_Click(object sender, EventArgs e)
         {
+            //validation
+            if (ValidateUtil.IsOver2000Length(txtBox_Comment1.Text) || ValidateUtil.IsOver2000Length(txtBox_Comment2.Text))
+            {
+                MessageBox.Show("2000文字以下のコメントを入力してください", "コメント情報エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+
             if (MessageBox.Show("コメントを更新してよろしいですか？(はい/いいえ)", "更新"
                 , MessageBoxButtons.YesNo
                 , MessageBoxIcon.Exclamation
