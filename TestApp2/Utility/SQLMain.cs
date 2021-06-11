@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using IF;
 using Const;
-
+using System.Windows.Forms;
 
 namespace Utility
 {
@@ -42,11 +42,18 @@ namespace Utility
         /// <param name="dbName">DB名</param>
         public SQLMain(string dbName)
         {
-            _conServer = ConfigurationManager.AppSettings["dbServer"];
-            _conDataBase = dbName;
-            _conUser = ConfigurationManager.AppSettings["dbUser"];
-            _conPwd = ConfigurationManager.AppSettings["dbPwd"];
-            _conn = Connection();
+            try
+            {
+                _conServer = ConfigurationManager.AppSettings["dbServer"];
+                _conDataBase = dbName;
+                _conUser = ConfigurationManager.AppSettings["dbUser"];
+                _conPwd = ConfigurationManager.AppSettings["dbPwd"];
+                _conn = Connection();
+            }
+            catch
+            {
+                throw;
+            }
         }
 
         /// <summary>
@@ -77,9 +84,10 @@ namespace Utility
                     ((SqlConnection)_conn).Open();
                 }
             }
-            catch (Exception ex)
+            catch
             {
-                throw ex;
+                MessageBox.Show("サーバに接続できませんでした", "サーバ接続エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
             }
 
             return _conn;
@@ -127,9 +135,9 @@ namespace Utility
             {
                 _transaction = ((SqlConnection)_conn).BeginTransaction();
             }
-            catch (Exception ex)
+            catch
             {
-                throw ex;
+                throw;
             }
             return _transaction;
         }
@@ -143,9 +151,9 @@ namespace Utility
             {
                 ((SqlTransaction)_transaction).Commit();
             }
-            catch (Exception ex)
+            catch
             {
-                throw ex;
+                throw;
             }
         }
 
@@ -158,9 +166,9 @@ namespace Utility
             {
                 ((SqlTransaction)_transaction).Rollback();
             }
-            catch (Exception ex)
+            catch
             {
-                throw ex;
+                throw;
             }
         }
 
@@ -179,9 +187,9 @@ namespace Utility
                 ParamSet(ref oSqlCommand, param);
                 ((SqlCommand)oSqlCommand).ExecuteNonQuery();
             }
-            catch (Exception ex)
+            catch
             {
-                throw ex;
+                throw;
             }
         }
 
@@ -204,9 +212,9 @@ namespace Utility
 
                 da.Fill(ret);
             }
-            catch (Exception ex)
+            catch
             {
-                throw ex;
+                throw;
             }
 
             return ret;
