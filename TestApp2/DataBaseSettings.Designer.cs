@@ -167,7 +167,7 @@ namespace WorkSheetApp
             this.group_newSettings.Controls.Add(this.lbl_newPasswordTitle);
             this.group_newSettings.Controls.Add(this.lbl_newUserNameTitle);
             this.group_newSettings.Controls.Add(this.lbl_newServerNameTitle);
-            this.group_newSettings.Location = new System.Drawing.Point(405, 40);
+            this.group_newSettings.Location = new System.Drawing.Point(395, 40);
             this.group_newSettings.Name = "group_newSettings";
             this.group_newSettings.Size = new System.Drawing.Size(295, 335);
             this.group_newSettings.TabIndex = 9;

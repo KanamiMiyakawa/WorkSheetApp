@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Configuration;
 
 namespace WorkSheetApp
 {
@@ -15,6 +16,11 @@ namespace WorkSheetApp
         public DataBaseSettings()
         {
             InitializeComponent();
+
+            var DBSettings = ConfigurationManager.AppSettings;
+            lbl_oldServerName.Text = DBSettings["dbServer"] ?? "Not Found";
+            lbl_oldUserName.Text = DBSettings["dbUser"] ?? "Not Found";
+            lbl_oldDBName.Text = DBSettings["dbName"] ?? "Not Found";
         }
     }
 }
