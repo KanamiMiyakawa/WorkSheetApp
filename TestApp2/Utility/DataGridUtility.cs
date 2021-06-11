@@ -30,7 +30,7 @@ namespace Utility
             {
                 try
                 {
-                    string sql = "SELECT * FROM WORK_PLAN_DTL WHERE HED_ID = @HED_ID ORDER BY RESULT_TIME_START, PLAN_TIME_START";
+                    string sql = "SELECT * FROM WORK_PLAN_DTL WHERE HED_ID = @HED_ID ORDER BY PLAN_TIME_START";
                     List<SQLParamIF> bInfo = new List<SQLParamIF>();
                     bInfo.Add(new SQLParamIF("@HED_ID", HED_ID, ColumnType.Numeric));
 
