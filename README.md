@@ -19,4 +19,5 @@ Microsoft SQL Server 2019
 Microsoft SQL Management Studio  
 
 ## ドキュメント
-#### ここに基本定義書などのオンラインリソースを貼る
+基本定義書＆画面遷移図  
+https://docs.google.com/spreadsheets/d/1xWzSK9UIBKErt952BPUGllozEou4kdE3601AEgjxaNE/edit?usp=sharing
