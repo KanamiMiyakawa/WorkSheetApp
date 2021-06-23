@@ -13,10 +13,10 @@ C#でアプリを作成する練習のために製作しました
 
 ## 開発環境
 
-Visual Studio 2019
-C# 8.0
-Microsoft SQL Server 2019
-Microsoft SQL Management Studio
+Visual Studio 2019  
+C# 8.0  
+Microsoft SQL Server 2019  
+Microsoft SQL Management Studio  
 
 ## ドキュメント
 #### ここに基本定義書などのオンラインリソースを貼る
